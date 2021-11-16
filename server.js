@@ -1,29 +1,38 @@
 // import packages //
+const express = require('express');
+const path = require('path');
+const api = require('./routes/index.js');
 
-//express
-//path
-//api 
+// const uuid = require('uuid');
 
+//Port that works with Heroku too. 
+const PORT = process.env.port || 3001;
 
-//helper methos to generating unique ids (refer topic 21 notes, pagg 45. 
-//note: use port for Heroku refer topic 26 activity 
+const app = express();
 
-//here 
-//const uuid = ?? 
-//const PORT = USE HEROKU METHOD HERE 
-//const app = express(); --link at top. 
+//middleware for parsing JSON and urlencoded from data 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+//route to get API
+app.use('/api', api);
 
+// allowing full access to folder public
+app.use(express.static('public'));
 
+// GET Route for homepage. i.e. index.html 
+app.get('/', (req, res) =>
+    res.sendFile(path.join(__dirname, './public/index.html'))
+);
 
+//GET route for notes . i.e. notes.html
+app.get('/notes', (req, res) =>
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
+);
 
-//middleware for parsinf JSON and urlencoded from data 
+//GET wildcard route to redirect back to the  homepage 
+app.get('*', (req, res) => res.redirect('./public/index.html'));
 
-
-
-
-
-// get Route for homepage. i.e. index.html 
-
-
-
-//get route for notes . i.e. notes.html
+//application to listen for all GET requests. 
+app.listen(PORT, () =>
+    console.log(`Application listening at http://localhost:${PORT}`)
+);
