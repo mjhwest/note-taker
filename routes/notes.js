@@ -1,19 +1,19 @@
-const router = require('express').Router();
-const { readFromFile, readAndAppend } = require('../../helpers/fsUtils');
+const notes = require('express').Router();
+const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 const { v4: uuidv4 } = require('uuid');
 
 
 
 //GET route for retrieinvg all the notes; 
-router.get('/', (req, res) => {
+notes.get('/', (req, res) => {
     console.info(`${req.method} request received for notes`);
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 
 // POST Route for NEW notes 
-router.post('/', (req, res) => {
-    console.info(`${req.method} request received to add a note`);
+notes.post('/', (req, res) => {
+    console.info(`${req.method} request received to add a tip`);
     console.log(req.body);
 
 
@@ -32,6 +32,4 @@ router.post('/', (req, res) => {
         res.error('Error in adding note!');
     }
 });
-
-
-module.exports = router
+module.exports = notes

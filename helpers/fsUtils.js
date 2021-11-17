@@ -8,7 +8,7 @@ const readFromFile = util.promisify(fs.readFile);
 /**
  *  Function to write data to the JSON file given a destination and some content
  *  @param {string} destination The file you want to write to.
- *  @param {object} content `The content you want to write to the file.
+ *  @param {object} content The content you want to write to the file.
  *  @returns {void} Nothing
  */
 const writeToFile = (destination, content) =>
@@ -32,5 +32,7 @@ const readAndAppend = (content, file) => {
         }
     });
 };
+
+//need to add in how to EDIT file and how to DELETE file here! !!!
 
 module.exports = { readFromFile, writeToFile, readAndAppend };
