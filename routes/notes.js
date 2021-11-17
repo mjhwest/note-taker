@@ -32,4 +32,14 @@ notes.post('/', (req, res) => {
         res.error('Error in adding note!');
     }
 });
+
+//testing delete route 
+//DELETE Route for Notes 
+notes.delete('/notes/:id', (req, res) => {
+    const noteID = req.params.id; 
+    deleteNote(noteID); 
+    res.end();
+})
+
+
 module.exports = notes
