@@ -33,4 +33,6 @@ const readAndAppend = (content, file) => {
     });
 };
 
+//need to add in how to EDIT file and how to DELETE file here! !!!
+
 module.exports = { readFromFile, writeToFile, readAndAppend };
