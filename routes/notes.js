@@ -17,7 +17,7 @@ notes.post('/', (req, res) => {
     console.log(req.body);
 
 
-    const { title, text, id } = req.body;
+    // const { title, text, id } = req.body;
 
     if (req.body) {
         const newNote = {
@@ -36,10 +36,9 @@ notes.post('/', (req, res) => {
 //testing delete route 
 //DELETE Route for Notes 
 notes.delete('/notes/:id', (req, res) => {
-    const noteID = req.params.id; 
-    deleteNote(noteID); 
+    const noteID = req.params.id;
+    deleteNote(noteID);
     res.end();
 })
-
 
 module.exports = notes
