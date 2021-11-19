@@ -1,4 +1,3 @@
-// based off helps folder from mini project. 
 
 const fs = require('fs');
 const util = require('util');
@@ -33,29 +32,4 @@ const readAndAppend = (content, file) => {
     });
 };
 
-//need to add in how to EDIT file and how to DELETE file here! !!!
-
-// DELETE  ROUTE here //testing 
-//added line 41-56 and deletenote in module.exports 
-
-function deleteNote(id){
-    fs.readFile(path.join(__dirname, "../db/db.json"), function(err, data){
-      var json = JSON.parse(data);
-      for (let i = 0; i < json.length; i++){
-        if (json[i].id === id){
-          json.splice(i, 1);
-        }
-      };
-  
-      fs.writeFile(path.join(__dirname, "../db/db.json"), JSON.stringify(json), function(err){
-        if (err){
-          console.error(err);
-        }
-      });
-    });
-};
-
-
-module.exports = { readFromFile, writeToFile, readAndAppend, deleteNote};
-
-// module.exports = { readFromFile, writeToFile, readAndAppend };
+module.exports = { readFromFile, writeToFile, readAndAppend};

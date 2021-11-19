@@ -9,4 +9,5 @@ const app = express();
 //application to use notesRoute
 app.use('/notes', notesRoute);
 
+//export app
 module.exports = app;

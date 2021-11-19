@@ -11,6 +11,7 @@ const app = express();
 //middleware for parsing JSON and urlencoded from data 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 //route to get API
 app.use('/api', api);
 
