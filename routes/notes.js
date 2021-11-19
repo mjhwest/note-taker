@@ -33,12 +33,25 @@ notes.post('/', (req, res) => {
     }
 });
 
+
 //testing delete route 
 //DELETE Route for Notes 
-notes.delete('/notes/:id', (req, res) => {
-    const noteID = req.params.id;
-    deleteNote(noteID);
-    res.end();
-})
+
+//added line 41 - 47
+notes.delete("/api/notes/:id", function(req, res) {
+    console.log("req params", req.params.id)
+    const itemIndex = newNote.findIndex(({ id }) => id === req.params.id);
+    if (itemIndex >= 0) {
+      newNote.splice(itemIndex, 1);
+    }
+  });
+
+
+
+// notes.delete('/notes/:id', (req, res) => {
+//     const noteID = req.params.id;
+//     deleteNote(noteID);
+//     res.end();
+// })
 
 module.exports = notes
