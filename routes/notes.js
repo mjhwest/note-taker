@@ -23,11 +23,11 @@ notes.post('/', (req, res) => {
     if (req.body) {
         //creating new note with a title, text and id 
         const newNote = {
-            title: req.body.title,
-            text: req.body.text,
-            id: uuidv4()
-        }
-//readAndAppend newnote to db.json 
+                title: req.body.title,
+                text: req.body.text,
+                id: uuidv4()
+            }
+            //readAndAppend newnote to db.json 
         readAndAppend(newNote, './db/db.json');
         res.json('Note added!');
         //error is cant post to db.json
@@ -39,22 +39,22 @@ notes.post('/', (req, res) => {
 
 //DELETE Route for Notes 
 //creating the path for delete note. //using delete method to delete note
-  notes.delete('/:id', (req, res) => {
+notes.delete('/:id', (req, res) => {
     //noteid = requested note with paramater id 
     let noteId = req.params.id;
     //read notes that are current in db.json file
     readFromFile('./db/db.json')
-    //parse the data as a string 
-    .then((data) => JSON.parse(data))
-    .then((json) => {
-      // function to create new array of notes, using filter method, exclude saved note with id that matches noteId with the same id.
-      //note pre defined in public folder, index.js 
-      const updateNotes = json.filter((note) => note.id !== noteId);
-      // updateNote is writen to file path ending at db.json 
-      writeToFile('./db/db.json', updateNotes); 
-      // NoteId has been deleted
-      res.json(`${noteId} your note has been deleted ! `);
-    });
+        //parse the data as a string 
+        .then((data) => JSON.parse(data))
+        .then((json) => {
+            // function to create new array of notes, using filter method, exclude saved note with id that matches noteId with the same id.
+            //note pre defined in public folder, index.js 
+            const updateNotes = json.filter((note) => note.id !== noteId);
+            // updateNote is writen to file path ending at db.json 
+            writeToFile('./db/db.json', updateNotes);
+            // NoteId has been deleted
+            res.json(`${noteId} your note has been deleted ! `);
+        });
 });
 
 

@@ -19,11 +19,11 @@ To give the application on Heroku click here: [View application on Heroku](https
 - [License](#license)
 
 ## Installation
-Once the user has cloned the project from GitHub there are a very steps they must undertake in order to get the application running. 
+Once the user has cloned the project from GitHub there are a few steps they must undertake in order to get the application running. 
 They must first open the command line and then type in 'npm install' or 'npm i'. This will download the neccessary dependencies so that the application functions. 
 
 ## Usage
-To use the application the user can simply click on the link to view the application: https://mwest-note-taker.herokuapp.com/
+To use the application the user can simply click on the link to view the application: https://mwest-note-taker.herokuapp.com
 
 This will take them to the homepage. 
 
