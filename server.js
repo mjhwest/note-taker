@@ -29,7 +29,11 @@ app.get('/notes', (req, res) =>
 );
 
 //GET wildcard route to redirect back to the  homepage 
-app.get('*', (req, res) => res.redirect('/'));
+app.get("*", function(req, res) {
+
+    res.sendFile(path.join(__dirname, "public/index.html"));
+
+});
 
 //application to listen for all GET requests. 
 app.listen(PORT, () =>
