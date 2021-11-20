@@ -4,7 +4,7 @@ const path = require('path');
 const api = require('./routes/index.js');
 
 //Port that works with Heroku too. 
-const PORT = process.env.port || 3001;
+const PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -29,11 +29,7 @@ app.get('/notes', (req, res) =>
 );
 
 //GET wildcard route to redirect back to the  homepage 
-app.get("*", function(req, res) {
-
-    res.sendFile(path.join(__dirname, "public/index.html"));
-
-});
+app.get('*', (req, res) => res.redirect('/'));
 
 //application to listen for all GET requests. 
 app.listen(PORT, () =>
