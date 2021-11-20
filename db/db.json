@@ -1,21 +1,3 @@
 [
-    {
-        "title": "Test Title",
-        "text": "Test text"
-    },
-    {
-        "title": "Do work",
-        "text": "When at work make sure i do work ",
-        "id": "1c7c4835-8d43-4d88-8a6b-818d09a6241a"
-    },
-    {
-        "title": "Leave Work",
-        "text": "make sure you leave work ",
-        "id": "df4f8e0e-d0c1-4ed2-80e2-1c1a7221f819"
-    },
-    {
-        "title": "Just checking",
-        "text": "it works still ",
-        "id": "7a249919-26d1-47c7-bdda-8cb35e002a09"
-    }
+
 ]
